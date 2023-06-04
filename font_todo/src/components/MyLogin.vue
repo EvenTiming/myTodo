@@ -1,24 +1,24 @@
 <template>
-<div>
-<!-- TODO improve the ui ,this version is for testing data interaction-->
-<input v-model="username">
-<input v-model="password">
-<button @click="login">Login</button>
-</div>
+    <div>
+        <!-- TODO improve the ui ,this version is for testing data interaction-->
+        <input v-model="username">
+        <input v-model="password">
+        <button @click="login">Login</button>
+    </div>
 </template>
 <script>
-import axios from 'axios';
+import http from '../http'
 export default {
-    data(){
+    data() {
         return {
-            username:'',
-            password:'',
+            username: '',
+            password: '',
         }
     },
-    methods:{
-        login(){
-            axios.get('/login',{username:this.username,password:this.password}).then(
-                Response =>{
+    methods: {
+        login() {
+            http.get('/login', { params: { username: this.username, password: this.password } }).then(
+                Response => {
                     //output the response
                     console.log(Response.data)
                 }
@@ -29,10 +29,8 @@ export default {
                 }
             )
         }
-    }  
+    }
 }
 </script>
 
-<style scoped>
-
-</style>
+<style scoped></style>
