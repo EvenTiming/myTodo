@@ -1,8 +1,16 @@
-const router = new router({
-    routes: [
-      { path: '/', component: Home },
-      { path: '/about', component: About },
-      // 其他路由配置
-    ]
-  });
-  
+import { createRouter, createWebHistory } from 'vue-router'
+import MyLogin from './components/MyLogin.vue';
+const routes = [
+  {
+    path: '/login',
+    component: MyLogin
+  },
+
+]
+
+const router = createRouter({
+  history: createWebHistory(),
+  routes
+})
+
+export default router
